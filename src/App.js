@@ -1,25 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      hi there
     </div>
   );
 }
 
 export default App;
+//Have a list or a cart on the side that gets the newest addition without much data aside the name
+//HAve a details option and a remove button
+//Details shows a card with info
+//when complete redirect to total nominations page
+//Home page with option -> search movies or watch stats
