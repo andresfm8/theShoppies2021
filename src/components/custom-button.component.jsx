@@ -1,6 +1,6 @@
 const CustomButton = () => {
 
-  render (
+  return (
     <button>
       Custom Button
     </button>

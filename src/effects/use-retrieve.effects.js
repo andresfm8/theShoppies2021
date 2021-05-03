@@ -2,18 +2,33 @@
 
 import { useEffect, useState } from "react"
 
-const useRetrieve = url => {
+const useRetrieve = (url, param, ...additionalData) => {
   const [data, setData] = useState(null);
 
-  useEffect((url) => {
+  useEffect(() => {
     const retrieveData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      setData(data);
+      try{
+        
+        const completeURL = await url.concat(param);
+        const response = await fetch(completeURL);
+        const data = await response.json();
+        
+        if(param === undefined || param === null || param === '')
+          throw new Error()
+
+        if(additionalData){
+          console.log(data);
+          setData(data);
+        } else //If there are too many results
+          throw new Error()
+
+      } catch (err){
+        return data;
+      }
     };
 
     retrieveData();
-  }, [url]);
+  }, [url, param]);
 
   return data;
 };

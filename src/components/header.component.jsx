@@ -2,7 +2,7 @@
 //Contains links to home and results page
 
 const Header = () => {
-  render (
+  return (
     <div>
       Header
     </div>

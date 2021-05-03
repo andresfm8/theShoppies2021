@@ -2,7 +2,7 @@
 //Title, director, cast, etc
 
 const MovieItem = () => {
-  render (
+  return (
     <div>
       MovieItem
     </div>

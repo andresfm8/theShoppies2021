@@ -1,5 +1,5 @@
 const ResultsPage = () => {
-  render (
+  return (
     <div>
       ResultsPage
     </div>

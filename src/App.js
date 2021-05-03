@@ -1,9 +1,11 @@
+import HomePage from './pages/home.component';
+
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      hi there
+      <HomePage/>
     </div>
   );
 }

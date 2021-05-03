@@ -1,7 +1,7 @@
 //Shows a preview of the movie item (min info => photo + title + details and add buttons)
 
 const MoviePreview = () => {
-  render (
+  return (
     <div>
       MoviePreview
     </div>

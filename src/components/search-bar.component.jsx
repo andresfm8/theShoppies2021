@@ -1,9 +1,6 @@
-const SearchBar = () => {
-  render (
-    <div>
-      SearchBar
-    </div>
-  )
+const SearchBar = () => {  
+  // SearchBox
+  // CustomButton
 }
 
-export default SearchBar;
+//May not use
