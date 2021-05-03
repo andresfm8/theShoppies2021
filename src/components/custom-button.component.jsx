@@ -1,9 +1,11 @@
-const CustomButton = () => {
+import Button from 'react-bootstrap/Button';
+
+const CustomButton = ({ children, ...props }) => {
 
   return (
-    <button>
-      Custom Button
-    </button>
+    <Button {...props}>
+      {children}
+    </Button>
   )
 };
 

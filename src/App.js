@@ -1,10 +1,14 @@
 import HomePage from './pages/home.component';
+import Header from './components/header.component';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 
 const App = () => {
   return (
     <div className="App">
+      <Header/>
       <HomePage/>
     </div>
   );

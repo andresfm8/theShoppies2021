@@ -4,11 +4,18 @@
  * given by the search-box component
  */
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useRetrieve from "../effects/use-retrieve.effects";
 import { retrieveQuery } from "../redux/movies/movies.selectors";
+import { addToNomineeList } from "../redux/nominee-list/nominee-list.actions";
+
+import CustomButton from "./custom-button.component";
+import NomineeList from "./nominee-list.component";
 
 const MoviesOverview = () => {
+
+  const dispatch = useDispatch();
+
   const movieQuery = useSelector(state => retrieveQuery(state));
 
   const movies = useRetrieve(
@@ -16,6 +23,11 @@ const MoviesOverview = () => {
     movieQuery,
     "data.Response == 'True'"
   );
+
+  const handleClick = movie => {
+    // e.preventDefault();
+    dispatch(addToNomineeList(movie))
+  };
   
   return (
     <div>
@@ -24,13 +36,21 @@ const MoviesOverview = () => {
         <ul>
           {
             movies.Search.map(movie => (
-              <li key={movie.imdbID}>{movie.Title}</li>
+              <li key={movie.imdbID}>
+                {movie.Title}&ensp;
+                <CustomButton 
+                  variant="outline-primary"
+                  size="sm"
+                  onClick={() => handleClick(movie)}
+                >Add</CustomButton>
+              </li>
             ))
           }          
-        </ul> 
+        </ul>
       )
-      : (<div> {movies && movieQuery !== '' ? movies.Error : movieQuery} </div>)
+      : (<div> {movies && movieQuery !== '' ? movies.Error : 'Search something'} </div>)
       }
+      <NomineeList/>
     </div>
   );
 };

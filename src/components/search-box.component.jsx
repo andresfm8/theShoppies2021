@@ -5,9 +5,7 @@ const SearchBox = ({ placeholder }) => {
 
   const dispatch = useDispatch();                
   
-  const handleChange =   e => {
-    dispatch(searchMovie(e.target.value));
-  };
+  const handleChange = e => dispatch(searchMovie(e.target.value));
 
   return (
     <div>
