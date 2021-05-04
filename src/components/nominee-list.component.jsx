@@ -1,21 +1,26 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsListComplete } from "../redux/nominee-list/nominee-list.actions";
 import { selectNomineeList } from "../redux/nominee-list/nominee-list.selectors";
-import CustomButton from "./custom-button.component";
 
 const NomineeList = () => {
 
-
+  const dispatch = useDispatch();
   const nomineeList =  useSelector(state => selectNomineeList(state));
-  const checkSize = () => {
-    // checkk size is max 5, if so then dispatch to lock all add buttons
-  }
-
+  
+  useEffect(() => {
+    if(nomineeList.length === 5) dispatch(setIsListComplete(true)); 
+    else dispatch(setIsListComplete(false));
+    console.log(nomineeList)
+    }, [nomineeList, dispatch])
 
   return (
     <div>
-      <CustomButton>
-        Print Nominees
-      </CustomButton>
+      {
+        nomineeList.map(movie => (
+          <div key={movie.imdbID}>{movie.Title}</div>
+        ))
+      }
     </div>
   );
 }

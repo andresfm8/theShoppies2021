@@ -2,7 +2,8 @@ import NomineeListActionTypes from "./nominee-list.types";
 import { addMovieToList } from "./nominee-list.utils";
 
 const INITIAL_STATE = {
-  nomineeList: []
+  nomineeList: [],
+  isListComplete: false
 }
 
 const nomineeListReducer = (state = INITIAL_STATE, action) => {
@@ -12,6 +13,11 @@ const nomineeListReducer = (state = INITIAL_STATE, action) => {
         ...state,
         nomineeList: addMovieToList(state.nomineeList, action.payload)
       };
+    case NomineeListActionTypes.SET_LIST_COMPLETE:
+      return {
+        ...state,
+        isListComplete: action.payload
+      }
     default:
       return state;
   }

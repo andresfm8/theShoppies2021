@@ -11,14 +11,14 @@ const useRetrieve = (url, param, ...additionalData) => {
         
         const completeURL = await url.concat(param);
         const response = await fetch(completeURL);
-        const data = await response.json();
+        const dataJSON = await response.json();
         
         if(param === undefined || param === null || param === '')
           throw new Error()
 
         if(additionalData){
-          console.log(data);
-          setData(data);
+          console.log(dataJSON);
+          setData(dataJSON);
         } else //If there are too many results
           throw new Error()
 

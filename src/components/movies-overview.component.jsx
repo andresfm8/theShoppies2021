@@ -3,11 +3,11 @@
  * This component displays request data based on search criteria (props)
  * given by the search-box component
  */
-
 import { useDispatch, useSelector } from "react-redux";
 import useRetrieve from "../effects/use-retrieve.effects";
 import { retrieveQuery } from "../redux/movies/movies.selectors";
 import { addToNomineeList } from "../redux/nominee-list/nominee-list.actions";
+import { selectIsListComplete } from "../redux/nominee-list/nominee-list.selectors";
 
 import CustomButton from "./custom-button.component";
 import NomineeList from "./nominee-list.component";
@@ -17,6 +17,7 @@ const MoviesOverview = () => {
   const dispatch = useDispatch();
 
   const movieQuery = useSelector(state => retrieveQuery(state));
+  const isListComplete = useSelector(state => selectIsListComplete(state));
 
   const movies = useRetrieve(
     'http://www.omdbapi.com/?apikey=8befd556&s=',
@@ -26,6 +27,7 @@ const MoviesOverview = () => {
 
   const handleClick = movie => {
     // e.preventDefault();
+    console.log(isListComplete)
     dispatch(addToNomineeList(movie))
   };
   
@@ -38,9 +40,10 @@ const MoviesOverview = () => {
             movies.Search.map(movie => (
               <li key={movie.imdbID}>
                 {movie.Title}&ensp;
-                <CustomButton 
+                <CustomButton
                   variant="outline-primary"
                   size="sm"
+                  disabled={isListComplete}//isListComplete || isMovieInList -> create selector -> no action needed
                   onClick={() => handleClick(movie)}
                 >Add</CustomButton>
               </li>
