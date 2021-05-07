@@ -3,6 +3,7 @@
  * This component displays request data based on search criteria (props)
  * given by the search-box component
  */
+ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import useRetrieve from "../../effects/use-retrieve.effects";
@@ -13,12 +14,18 @@ import { selectIsListComplete, selectNomineeList } from "../../redux/nominee-lis
 
 import Placeholder   from '../../assets/image-placeholder.svg';
 
-import Container from "react-bootstrap/Container"
-import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 
-import CustomButton from "../custom-button/custom-button.component";
+import { 
+  AddButton, 
+  CardBodyContainer, 
+  CardContainer, 
+  CardImgContainer, 
+  CardTitle, 
+  MessageContainer, 
+  MoviesOverviewContainer
+} from "./movies.styles";
 
 const MoviesOverview = () => {
 
@@ -49,47 +56,47 @@ const MoviesOverview = () => {
     <div>
       { movies &&  movies.Search !== undefined?
       (
-        <Container className="" >
+        <MoviesOverviewContainer>
           <Row xl={5} lg={4} md={3}>
           {
             movies.Search.map(movie => (
-              <Col key={`${movie.imdbID}${movie.Year}`}>
-                <Card
-                  style={{
-                     width: '14rem', 
-                     height: '28rem',  
-                     margin: '7px auto' 
-                  }}
-                >
-                  <Card.Img variant="top" src={movie.Poster != 'N/A' ? movie.Poster : Placeholder} alt={movie.Poster}
-                    style={{
-                      width: '13.9rem',
-                      height: '18rem'
-                    }}
+              <Col key={`${movie.imdbID}${movie.Year}`} style={{padding: '0'}}>
+                <CardContainer>
+                  <CardImgContainer 
+                    role="button"
+                    src={movie.Poster !== 'N/A' ? movie.Poster : Placeholder} 
+                    alt={movie.Poster}
                     onClick={() => handleShow(movie)}
                   />
-                  <Card.Body>
-                    <Card.Title>{movie.Title} ({movie.Year})</Card.Title>
-                    <CustomButton
+                  <CardBodyContainer>
+                    <CardTitle
+                      role="button"
+                      onClick={() => handleShow(movie)}
+                    >
+                      {movie.Title.length > 25
+                        ?`${movie.Title.substring(0,25)}...`
+                        : movie.Title} ({movie.Year})
+                    </CardTitle>             
+                    <AddButton
                       variant="outline-primary"
                       size="sm"
                       disabled={isListComplete || isMovieInList(movie) }
                       onClick={() => handleClick(movie)}
-                    >Add</CustomButton>
-                  </Card.Body>
-                </Card>
+                    >Add</AddButton>
+                  </CardBodyContainer>
+                </CardContainer>
               </Col>
             ))
           }      
           </Row>    
-        </Container>
+        </MoviesOverviewContainer>
       )
       : (
-          <div
-            style={{margin: '5vh auto', fontSize: '2rem', textAlign: 'center'}}
-          > 
-            {movies && movieQuery !== '' ? movies.Error : 'Search your favorite movies to nominate!'} 
-          </div>
+          <MessageContainer> 
+            {movies && movieQuery !== '' 
+              ? movies.Error 
+              : 'Search your favorite movies to nominate!'} 
+          </MessageContainer>
         )
       }
     </div>

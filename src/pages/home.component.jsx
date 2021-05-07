@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-import CustomButton from "../components/custom-button/custom-button.component";
 import MoviePreview from "../components/movie-preview/movie-preview.component";
 import MoviesOverview from "../components/movies-overview/movies-overview.component";
 import NomineePopup from "../components/nominee-popup/nominee-popup.component";
 import SearchBox from "../components/search-box/search-box.component";
 
 import { selectListLength } from "../redux/nominee-list/nominee-list.selectors";
+import { CounterContainer, NomineePopupButton } from "./home.styles";
 
 //Selector for # of items in list
 
@@ -30,19 +30,10 @@ const HomePage = () => {
       {
         hiddenPopup ? <NomineePopup/> : ''
       }
-      <CustomButton
-        style={{ 
-          width: '18rem',
-          position: 'fixed',
-          bottom: '1vh',
-          right:'2vw'
-        }}
-        onClick={() => handleClick()}
-      >
-        Your Nominees <span>
-                        {listCounter}
-                      </span>
-      </CustomButton>
+      <NomineePopupButton onClick={() => handleClick()}>
+        Your Nominees 	&ensp;
+        <CounterContainer>{listCounter}</CounterContainer>
+      </NomineePopupButton>
       <MoviePreview/>
     </div>
   )
