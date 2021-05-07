@@ -11,3 +11,8 @@ export const selectIsListComplete = createSelector(
   [selectCurrentNominees],
   list => list.isListComplete
 );
+
+export const selectListLength = createSelector(
+  [selectCurrentNominees],
+  list => list.nomineeList.length
+);

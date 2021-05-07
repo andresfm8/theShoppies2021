@@ -1,5 +1,5 @@
 import NomineeListActionTypes from "./nominee-list.types";
-import { addMovieToList } from "./nominee-list.utils";
+import { addMovieToList, removeMovieFromList } from "./nominee-list.utils";
 
 const INITIAL_STATE = {
   nomineeList: [],
@@ -13,11 +13,21 @@ const nomineeListReducer = (state = INITIAL_STATE, action) => {
         ...state,
         nomineeList: addMovieToList(state.nomineeList, action.payload)
       };
+    case NomineeListActionTypes.REMOVE_FROM_NOMINEE_LIST:
+      return {
+        ...state,
+        nomineeList: removeMovieFromList(state.nomineeList, action.payload)
+      };
+    case NomineeListActionTypes.CLEAR_NOMINEE_LIST:
+      return {
+        ...state,
+        nomineeList: []
+      }
     case NomineeListActionTypes.SET_LIST_COMPLETE:
       return {
         ...state,
         isListComplete: action.payload
-      }
+      };
     default:
       return state;
   }

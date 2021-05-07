@@ -5,6 +5,15 @@ export const addToNomineeList = movie => ({
   payload: movie
 });
 
+export const removeFromNomineeList = movie => ({
+  type: NomineeListActionTypes.REMOVE_FROM_NOMINEE_LIST,
+  payload: movie
+});
+
+export const clearNomineeList = () => ({
+  type: NomineeListActionTypes.CLEAR_NOMINEE_LIST
+})
+
 export const setIsListComplete = isComplete => ({
   type: NomineeListActionTypes.SET_LIST_COMPLETE,
   payload: isComplete

@@ -8,7 +8,7 @@ import nomineeListReducer from './nominee-list/nominee-list.reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['movies', 'nomineeList']
+  blacklist: ['movies']
 }
 
 const rootReducer = combineReducers({
