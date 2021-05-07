@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-import CustomButton from "../components/custom-button.component";
-import MoviePreview from "../components/movie-preview.component";
-import MoviesOverview from "../components/movies-overview.component";
-import NomineePopup from "../components/nominee-popup.component";
-import SearchBox from "../components/search-box.component";
+import CustomButton from "../components/custom-button/custom-button.component";
+import MoviePreview from "../components/movie-preview/movie-preview.component";
+import MoviesOverview from "../components/movies-overview/movies-overview.component";
+import NomineePopup from "../components/nominee-popup/nominee-popup.component";
+import SearchBox from "../components/search-box/search-box.component";
 
 import { selectListLength } from "../redux/nominee-list/nominee-list.selectors";
 
@@ -23,7 +23,7 @@ const HomePage = () => {
   }
 
   return (
-    <div>
+    <div className="w-100">
       <SearchBox placeholder="Search for a movie..."/>
       <MoviesOverview/>
       

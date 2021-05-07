@@ -1,5 +1,5 @@
 import HomePage from './pages/home.component';
-import Header from './components/header.component';
+import Header from './components/header/header.component';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -7,7 +7,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <Header/>
       <HomePage/>
     </div>

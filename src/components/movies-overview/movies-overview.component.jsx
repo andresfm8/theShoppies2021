@@ -5,20 +5,20 @@
  */
 import { useDispatch, useSelector } from "react-redux";
 
-import useRetrieve from "../effects/use-retrieve.effects";
-import { retrieveQuery } from "../redux/movies/movies.selectors";
-import { addToNomineeList, setIsMovieOpen } from "../redux/nominee-list/nominee-list.actions";
-import { fetchMovie } from "../redux/movies/movies.actions";
-import { selectIsListComplete, selectNomineeList } from "../redux/nominee-list/nominee-list.selectors";
+import useRetrieve from "../../effects/use-retrieve.effects";
+import { retrieveQuery } from "../../redux/movies/movies.selectors";
+import { addToNomineeList, setIsMovieOpen } from "../../redux/nominee-list/nominee-list.actions";
+import { fetchMovie } from "../../redux/movies/movies.actions";
+import { selectIsListComplete, selectNomineeList } from "../../redux/nominee-list/nominee-list.selectors";
 
-import Placeholder   from '../assets/image-placeholder.svg';
+import Placeholder   from '../../assets/image-placeholder.svg';
 
 import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
 
-import CustomButton from "./custom-button.component";
+import CustomButton from "../custom-button/custom-button.component";
 
 const MoviesOverview = () => {
 
@@ -49,8 +49,8 @@ const MoviesOverview = () => {
     <div>
       { movies &&  movies.Search !== undefined?
       (
-        <Container style={{width: '90%'}}>
-          <Row xl={4} lg={3}>
+        <Container className="" >
+          <Row xl={5} lg={4} md={3}>
           {
             movies.Search.map(movie => (
               <Col key={`${movie.imdbID}${movie.Year}`}>
@@ -86,15 +86,12 @@ const MoviesOverview = () => {
       )
       : (
           <div
-            style={{margin: '5vh auto', fontSize: '2rem'}}
+            style={{margin: '5vh auto', fontSize: '2rem', textAlign: 'center'}}
           > 
             {movies && movieQuery !== '' ? movies.Error : 'Search your favorite movies to nominate!'} 
           </div>
         )
       }
-      {/* <CustomButton onClick={handleShow}>
-        Open modal
-      </CustomButton> */}
     </div>
   );
 };

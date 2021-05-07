@@ -2,11 +2,14 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearNomineeList, removeFromNomineeList, setIsListComplete } from "../redux/nominee-list/nominee-list.actions";
-import { selectNomineeList } from "../redux/nominee-list/nominee-list.selectors";
 
-import ListGroup from 'react-bootstrap/ListGroup'
-import CustomButton from "./custom-button.component";
+import { clearNomineeList, removeFromNomineeList, setIsListComplete, setIsMovieOpen } from "../../redux/nominee-list/nominee-list.actions";
+import { fetchMovie } from "../../redux/movies/movies.actions";
+import { selectNomineeList } from "../../redux/nominee-list/nominee-list.selectors";
+
+import ListGroup from "react-bootstrap/ListGroup";
+
+import CustomButton from "../custom-button/custom-button.component";
 
 const NomineeList = () => {
 
@@ -21,13 +24,14 @@ const NomineeList = () => {
   );
 
   const handleRemoveFromListClick = movie => dispatch(removeFromNomineeList(movie));
-
   const handleClearListClick = () => dispatch(clearNomineeList());
+  const handleSubmitListClick = () => dispatch(clearNomineeList());
+
+  const handleShow = movie => {
+    dispatch(fetchMovie(movie));
+    dispatch(setIsMovieOpen(true))
+  };
   
-  const handleSubmitListClick = () => {
-    dispatch(clearNomineeList());
-    console.log("dont forget to submit!");
-  }
 
   return (
     <ListGroup variant="flush">
@@ -35,7 +39,7 @@ const NomineeList = () => {
         nomineeList.length === 5? 
         <div>
           <CustomButton
-            style={{width: '50%'}}
+            className="w-50"
             size="sm"
             variant="outline-danger"
             onClick={() => handleClearListClick()}
@@ -43,7 +47,7 @@ const NomineeList = () => {
             Clear List
           </CustomButton>
           <CustomButton
-            style={{width: '50%'}}
+            className="w-50"
             size="sm"
             variant="outline-success"
             onClick={() => handleSubmitListClick()}
@@ -59,11 +63,18 @@ const NomineeList = () => {
           <div>
           {
             nomineeList.map(movie => (
-              <ListGroup.Item key={`${movie.imdbID}${movie.Year}`}>{movie.Title} 
-                <span style={{
-                  cursor: "pointer"
-                  }}
+              <ListGroup.Item key={`${movie.imdbID}${movie.Year}`}>
+                <span 
+                  role="button"
+                  onClick={() => handleShow(movie)}
+                >
+                  {movie.Title} ({movie.Year})
+                </span>
+                &emsp;
+                <span 
+                  role="button"
                   onClick={() => handleRemoveFromListClick(movie)}
+                  style={{color: 'red'}}
                 >
                   &#9747;
                 </span>

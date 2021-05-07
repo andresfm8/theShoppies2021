@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { searchMovie } from "../redux/movies/movies.actions";
+import { searchMovie } from "../../redux/movies/movies.actions";
 
 import Form from 'react-bootstrap/Form'
 

@@ -1,5 +1,5 @@
 import Card from "react-bootstrap/Card";
-import NomineeList from "./nominee-list.component";
+import NomineeList from "../nominee-list/nominee-list.component";
 
 const NomineePopup = () => {
   return (
