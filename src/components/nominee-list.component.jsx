@@ -1,3 +1,5 @@
+//Fetch nominees from the user, data is persistent
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearNomineeList, removeFromNomineeList, setIsListComplete } from "../redux/nominee-list/nominee-list.actions";

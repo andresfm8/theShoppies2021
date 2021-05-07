@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import CustomButton from "../components/custom-button.component";
+import MoviePreview from "../components/movie-preview.component";
 import MoviesOverview from "../components/movies-overview.component";
 import NomineePopup from "../components/nominee-popup.component";
 import SearchBox from "../components/search-box.component";
@@ -15,7 +16,7 @@ const HomePage = () => {
   const [hiddenPopup, setHiddenPopup] = useState(false);
 
   const listCounter = useSelector(state => selectListLength(state));
-
+  
   const handleClick = () => {
     setHiddenPopup(!hiddenPopup);
     console.log(listCounter);
@@ -42,7 +43,7 @@ const HomePage = () => {
                         {listCounter}
                       </span>
       </CustomButton>
-      {/* //add nunber to the button */}
+      <MoviePreview/>
     </div>
   )
 }

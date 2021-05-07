@@ -3,7 +3,8 @@ import { addMovieToList, removeMovieFromList } from "./nominee-list.utils";
 
 const INITIAL_STATE = {
   nomineeList: [],
-  isListComplete: false
+  isListComplete: false,
+  isOpen: false
 }
 
 const nomineeListReducer = (state = INITIAL_STATE, action) => {
@@ -28,6 +29,11 @@ const nomineeListReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isListComplete: action.payload
       };
+    case NomineeListActionTypes.SET_MOVIE_OPEN:
+      return {
+        ...state,
+        isOpen: action.payload
+      }
     default:
       return state;
   }

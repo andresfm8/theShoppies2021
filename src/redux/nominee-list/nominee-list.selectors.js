@@ -16,3 +16,8 @@ export const selectListLength = createSelector(
   [selectCurrentNominees],
   list => list.nomineeList.length
 );
+
+export const selectIsMovieOpen = createSelector(
+  [selectCurrentNominees],
+  list => list.isOpen
+)

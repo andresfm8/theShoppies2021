@@ -4,15 +4,20 @@
  * given by the search-box component
  */
 import { useDispatch, useSelector } from "react-redux";
+
 import useRetrieve from "../effects/use-retrieve.effects";
 import { retrieveQuery } from "../redux/movies/movies.selectors";
-import { addToNomineeList } from "../redux/nominee-list/nominee-list.actions";
+import { addToNomineeList, setIsMovieOpen } from "../redux/nominee-list/nominee-list.actions";
+import { fetchMovie } from "../redux/movies/movies.actions";
 import { selectIsListComplete, selectNomineeList } from "../redux/nominee-list/nominee-list.selectors";
+
+import Placeholder   from '../assets/image-placeholder.svg';
 
 import Container from "react-bootstrap/Container"
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
+
 import CustomButton from "./custom-button.component";
 
 const MoviesOverview = () => {
@@ -29,7 +34,12 @@ const MoviesOverview = () => {
     "data.Response == 'True'"
   );
 
-  const handleClick = movie => dispatch(addToNomineeList(movie))
+  const handleClick = movie => dispatch(addToNomineeList(movie));
+
+  const handleShow = movie => {
+    dispatch(fetchMovie(movie));
+    dispatch(setIsMovieOpen(true))
+  };
 
   const isMovieInList = movie => {
     return nomineeList.find(nominee => nominee.imdbID === movie.imdbID);
@@ -51,11 +61,13 @@ const MoviesOverview = () => {
                      margin: '7px auto' 
                   }}
                 >
-                  <Card.Img variant="top" src={movie.Poster} 
+                  <Card.Img variant="top" src={movie.Poster != 'N/A' ? movie.Poster : Placeholder} alt={movie.Poster}
                     style={{
                       width: '13.9rem',
                       height: '18rem'
-                    }}/>
+                    }}
+                    onClick={() => handleShow(movie)}
+                  />
                   <Card.Body>
                     <Card.Title>{movie.Title} ({movie.Year})</Card.Title>
                     <CustomButton
@@ -80,6 +92,9 @@ const MoviesOverview = () => {
           </div>
         )
       }
+      {/* <CustomButton onClick={handleShow}>
+        Open modal
+      </CustomButton> */}
     </div>
   );
 };

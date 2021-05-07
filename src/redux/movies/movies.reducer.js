@@ -1,7 +1,8 @@
 import MoviesActionTypes from "./movies.types";
 
 const INITIAL_STATE = {
-  searchCriteria: null
+  searchCriteria: null,
+  movie: null
 };
 
 const moviesReducer = ( state = INITIAL_STATE, action ) => {
@@ -10,6 +11,11 @@ const moviesReducer = ( state = INITIAL_STATE, action ) => {
       return {
         ...state,
         searchCriteria: action.payload
+      };
+    case MoviesActionTypes.FETCH_MOVIE:
+      return {
+        ...state,
+        movie: action.payload
       };
     default:
       return state;
