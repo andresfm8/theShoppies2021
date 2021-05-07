@@ -3,7 +3,8 @@
 const MoviePreview = () => {
   return (
     <div>
-      MoviePreview
+      MoviePreview 
+      {/* When click on the movie show a preview with more info that showed in the card */}
     </div>
   )
 }

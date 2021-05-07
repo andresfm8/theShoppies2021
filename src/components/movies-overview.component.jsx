@@ -7,10 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import useRetrieve from "../effects/use-retrieve.effects";
 import { retrieveQuery } from "../redux/movies/movies.selectors";
 import { addToNomineeList } from "../redux/nominee-list/nominee-list.actions";
-import { selectIsListComplete } from "../redux/nominee-list/nominee-list.selectors";
+import { selectIsListComplete, selectNomineeList } from "../redux/nominee-list/nominee-list.selectors";
 
+import Container from "react-bootstrap/Container"
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col"
+import Row from "react-bootstrap/Row"
 import CustomButton from "./custom-button.component";
-import NomineeList from "./nominee-list.component";
 
 const MoviesOverview = () => {
 
@@ -18,6 +21,7 @@ const MoviesOverview = () => {
 
   const movieQuery = useSelector(state => retrieveQuery(state));
   const isListComplete = useSelector(state => selectIsListComplete(state));
+  const nomineeList = useSelector(state => selectNomineeList(state));
 
   const movies = useRetrieve(
     'http://www.omdbapi.com/?apikey=8befd556&s=',
@@ -25,35 +29,57 @@ const MoviesOverview = () => {
     "data.Response == 'True'"
   );
 
-  const handleClick = movie => {
-    // e.preventDefault();
-    console.log(isListComplete)
-    dispatch(addToNomineeList(movie))
-  };
+  const handleClick = movie => dispatch(addToNomineeList(movie))
+
+  const isMovieInList = movie => {
+    return nomineeList.find(nominee => nominee.imdbID === movie.imdbID);
+  }
   
   return (
     <div>
       { movies &&  movies.Search !== undefined?
       (
-        <ul>
+        <Container style={{width: '90%'}}>
+          <Row xl={4} lg={3}>
           {
             movies.Search.map(movie => (
-              <li key={movie.imdbID}>
-                {movie.Title}&ensp;
-                <CustomButton
-                  variant="outline-primary"
-                  size="sm"
-                  disabled={isListComplete}//isListComplete || isMovieInList -> create selector -> no action needed
-                  onClick={() => handleClick(movie)}
-                >Add</CustomButton>
-              </li>
+              <Col key={`${movie.imdbID}${movie.Year}`}>
+                <Card
+                  style={{
+                     width: '14rem', 
+                     height: '28rem',  
+                     margin: '7px auto' 
+                  }}
+                >
+                  <Card.Img variant="top" src={movie.Poster} 
+                    style={{
+                      width: '13.9rem',
+                      height: '18rem'
+                    }}/>
+                  <Card.Body>
+                    <Card.Title>{movie.Title} ({movie.Year})</Card.Title>
+                    <CustomButton
+                      variant="outline-primary"
+                      size="sm"
+                      disabled={isListComplete || isMovieInList(movie) }
+                      onClick={() => handleClick(movie)}
+                    >Add</CustomButton>
+                  </Card.Body>
+                </Card>
+              </Col>
             ))
-          }          
-        </ul>
+          }      
+          </Row>    
+        </Container>
       )
-      : (<div> {movies && movieQuery !== '' ? movies.Error : 'Search something'} </div>)
+      : (
+          <div
+            style={{margin: '5vh auto', fontSize: '2rem'}}
+          > 
+            {movies && movieQuery !== '' ? movies.Error : 'Search your favorite movies to nominate!'} 
+          </div>
+        )
       }
-      <NomineeList/>
     </div>
   );
 };
