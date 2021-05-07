@@ -10,6 +10,7 @@ import { selectNomineeList } from "../../redux/nominee-list/nominee-list.selecto
 import ListGroup from "react-bootstrap/ListGroup";
 
 import CustomButton from "../custom-button/custom-button.component";
+import { TitleContainer } from "./nominee-list.styles";
 
 const NomineeList = () => {
 
@@ -64,12 +65,14 @@ const NomineeList = () => {
           {
             nomineeList.map(movie => (
               <ListGroup.Item key={`${movie.imdbID}${movie.Year}`}>
-                <span 
+                <TitleContainer 
                   role="button"
                   onClick={() => handleShow(movie)}
                 >
-                  {movie.Title} ({movie.Year})
-                </span>
+                  {movie.Title.length > 15
+                    ?`${movie.Title.substring(0,20)}...`
+                    : movie.Title} ({movie.Year})
+                </TitleContainer>
                 &emsp;
                 <span 
                   role="button"

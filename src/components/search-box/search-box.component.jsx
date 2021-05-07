@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { searchMovie } from "../../redux/movies/movies.actions";
 
+import { SearchBoxContainer } from './search-box.styles';
 import Form from 'react-bootstrap/Form'
 
 const SearchBox = ({ placeholder }) => {
@@ -10,14 +11,14 @@ const SearchBox = ({ placeholder }) => {
   const handleChange = e => dispatch(searchMovie(e.target.value));
 
   return (
-    <div style={{margin: '2vh auto', width: '60%'}}>
+    <SearchBoxContainer>
       <Form.Control 
         type="search"
         placeholder={placeholder}
         onChange={handleChange}
         size="lg"
       />
-    </div>
+    </SearchBoxContainer>
   )
 }
 

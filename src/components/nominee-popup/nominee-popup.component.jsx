@@ -1,17 +1,12 @@
-import Card from "react-bootstrap/Card";
 import NomineeList from "../nominee-list/nominee-list.component";
+
+import { NomineeListContainer } from "./nominee-popup.styles";
 
 const NomineePopup = () => {
   return (
-    <Card 
-      style={{ 
-        width: '18rem',
-        position: 'fixed',
-        bottom: '3rem',
-        right:'2vw'
-      }}>
+    <NomineeListContainer>
       <NomineeList/>
-    </Card>
+    </NomineeListContainer>
   )
 }
 

@@ -26,6 +26,9 @@ export const CardBodyContainer = styled(Card.Body)`
 export const CardTitle = styled(Card.Title)`
   font-size: 1.1rem;
   margin-bottom: 1em;
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 export const AddButton = styled(CustomButton)`

@@ -3,7 +3,6 @@
  * This component displays request data based on search criteria (props)
  * given by the search-box component
  */
- import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import useRetrieve from "../../effects/use-retrieve.effects";
