@@ -5,7 +5,7 @@ const useResize = () => {
 
   useEffect(() => {
     const resize = () => {
-      window.innerWidth <= 991 //Temp to test out
+      window.innerWidth <= 991
         ? setIsMobile(true)
         : setIsMobile(false);
     }

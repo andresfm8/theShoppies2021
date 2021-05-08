@@ -18,8 +18,7 @@ const HomePage = () => {
   
   const handleClick = () => {
     setHiddenPopup(!hiddenPopup);
-    console.log(listCounter);
-  }
+  };
 
   return (
     <div className="w-100">

@@ -17,7 +17,6 @@ const useRetrieve = (url, param, ...additionalData) => {
           throw new Error()
 
         if(additionalData){
-          console.log(dataJSON);
           setData(dataJSON);
         } else //If there are too many results
           throw new Error()
