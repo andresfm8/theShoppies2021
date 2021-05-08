@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Toast from "react-bootstrap/Toast";
-import ToastBody from 'react-bootstrap/ToastBody'
 
 import { selectAlertMessage } from "../../redux/alert/alert.selectors";
 import { unsetAlertMessage } from "../../redux/alert/alert.actions";
