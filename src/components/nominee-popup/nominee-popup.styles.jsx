@@ -5,6 +5,6 @@ import styled from "styled-components/macro";
 export const NomineeListContainer = styled(Card)`
   width: 18rem;
   position: fixed;
-  bottom: 3rem;
+  bottom: 3.2rem;
   right: 2vw;
 `

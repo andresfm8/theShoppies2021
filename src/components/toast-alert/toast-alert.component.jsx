@@ -13,7 +13,7 @@ const ToastAlert = () => {
   
   const [show, setShow] = useState(false);
 
-  const alertMessage = useSelector(state => selectAlertMessage(state))
+  const alertMessage = useSelector(state => selectAlertMessage(state));
 
   useEffect(() => {
     if(alertMessage) {

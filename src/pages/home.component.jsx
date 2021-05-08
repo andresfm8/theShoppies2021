@@ -16,23 +16,22 @@ const HomePage = () => {
 
   const listCounter = useSelector(state => selectListLength(state));
   
-  const handleClick = () => {
-    setHiddenPopup(!hiddenPopup);
-  };
+  const handleClick = () => setHiddenPopup(!hiddenPopup);
 
   return (
     <div>
       <ToastAlert/>
       <SearchBox placeholder="Search for a movie..."/>
       <MoviesOverview/>
-      { hiddenPopup ? <NomineePopup/> : '' }
       <NomineePopupButton
         onClick={() => handleClick()}
       >
         Your Nominees 	&ensp;
         <CounterContainer>{listCounter}</CounterContainer>
-      <MoviePreview/>
       </NomineePopupButton>
+      <MoviePreview/>
+      { hiddenPopup ? <NomineePopup/> : '' }
+      
     </div>
   )
 }
