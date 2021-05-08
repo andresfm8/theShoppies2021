@@ -25,6 +25,7 @@ import {
   MessageContainer, 
   MoviesOverviewContainer
 } from "./movies.styles";
+import { setAlertMessage } from "../../redux/alert/alert.actions";
 
 const MoviesOverview = () => {
 
@@ -40,11 +41,14 @@ const MoviesOverview = () => {
     "data.Response == 'True'"
   );
 
-  const handleClick = movie => dispatch(addToNomineeList(movie));
+  const handleClick = movie => {
+    dispatch(addToNomineeList(movie));
+    dispatch(setAlertMessage("Movie added to nominee list!"));
+  };
 
   const handleShow = movie => {
     dispatch(fetchMovie(movie));
-    dispatch(setIsMovieOpen(true))
+    dispatch(setIsMovieOpen(true));
   };
 
   const isMovieInList = movie => {
