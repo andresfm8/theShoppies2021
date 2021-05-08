@@ -37,7 +37,7 @@ const MoviesOverview = () => {
   const nomineeList = useSelector(state => selectNomineeList(state));
 
   const movies = useRetrieve(
-    'http://www.omdbapi.com/?apikey=8befd556&s=',
+    'https://www.omdbapi.com/?apikey=8befd556&s=',
     movieQuery,
     "data.Response == 'True'"
   );
