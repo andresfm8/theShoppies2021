@@ -41,7 +41,7 @@ const NomineeList = () => {
   const handleSubmitListClick = () => {
     dispatch(clearNomineeList());
     dispatch(setAlertMessage("Movies submitted successfully!"));
-    window.confirm("You have submitted your nominations!")
+    alert("You have submitted your nominations!")
   };
 
 
