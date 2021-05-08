@@ -15,8 +15,7 @@ import { setAlertMessage } from "../../redux/alert/alert.actions";
 
 import Placeholder   from '../../assets/image-placeholder.svg';
 
-import Col from "react-bootstrap/Col"
-import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col";
 
 import { 
   AddButton, 
@@ -25,7 +24,8 @@ import {
   CardImgContainer, 
   CardTitle, 
   MessageContainer, 
-  MoviesOverviewContainer
+  MoviesOverviewContainer,
+  RowContainer
 } from "./movies.styles";
 
 const MoviesOverview = () => {
@@ -61,7 +61,7 @@ const MoviesOverview = () => {
       { movies &&  movies.Search !== undefined?
       (
         <MoviesOverviewContainer>
-          <Row xl={5} lg={4} md={3}>
+          <RowContainer xl={5} lg={4} md={3}>
           {
             movies.Search.map(movie => (
               <Col key={`${movie.imdbID}${movie.Year}`} style={{padding: '0'}}>
@@ -92,7 +92,7 @@ const MoviesOverview = () => {
               </Col>
             ))
           }      
-          </Row>    
+          </RowContainer>    
         </MoviesOverviewContainer>
       )
       : (

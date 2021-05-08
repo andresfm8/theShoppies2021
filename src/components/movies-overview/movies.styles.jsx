@@ -1,4 +1,5 @@
 import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container"
 import CustomButton from "../custom-button/custom-button.component";
 
@@ -14,6 +15,10 @@ export const CardContainer = styled(Card)`
   width: 14rem;
   height: 25rem;
   margin: 7px auto;
+`
+export const RowContainer = styled(Row)`
+  width: 100%;
+  margin: 0;
 `
 
 export const CardImgContainer = styled(Card.Img)`

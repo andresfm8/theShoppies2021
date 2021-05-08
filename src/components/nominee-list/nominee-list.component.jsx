@@ -3,15 +3,21 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { clearNomineeList, removeFromNomineeList, setIsListComplete, setIsMovieOpen } from "../../redux/nominee-list/nominee-list.actions";
+import { 
+  clearNomineeList, 
+  removeFromNomineeList, 
+  setIsListComplete, 
+  setIsMovieOpen 
+} from "../../redux/nominee-list/nominee-list.actions";
 import { fetchMovie } from "../../redux/movies/movies.actions";
+import { setAlertMessage } from "../../redux/alert/alert.actions";
 import { selectNomineeList } from "../../redux/nominee-list/nominee-list.selectors";
+
+import CustomButton from "../custom-button/custom-button.component";
 
 import ListGroup from "react-bootstrap/ListGroup";
 
-import CustomButton from "../custom-button/custom-button.component";
 import { TitleContainer } from "./nominee-list.styles";
-import { setAlertMessage } from "../../redux/alert/alert.actions";
 
 const NomineeList = () => {
 

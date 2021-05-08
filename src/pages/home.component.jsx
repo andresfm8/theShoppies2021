@@ -21,7 +21,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="w-100">
+    <div>
       <ToastAlert/>
       <SearchBox placeholder="Search for a movie..."/>
       <MoviesOverview/>
