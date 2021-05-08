@@ -4,5 +4,5 @@ export const ToastContainer = styled.div`
   position: fixed;
   top: 2rem;
   right: 0.8rem;
-  zIndex: 4;
+  z-index: 4;
 `
