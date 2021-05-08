@@ -13,7 +13,7 @@ const SearchBox = ({ placeholder }) => {
   return (
     <SearchBoxContainer>
       <Form.Control 
-        type="search"
+        type="text"
         placeholder={placeholder}
         onChange={handleChange}
         size="lg"

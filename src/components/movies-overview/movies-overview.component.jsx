@@ -6,10 +6,12 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import useRetrieve from "../../effects/use-retrieve.effects";
+
 import { retrieveQuery } from "../../redux/movies/movies.selectors";
+import { selectIsListComplete, selectNomineeList } from "../../redux/nominee-list/nominee-list.selectors";
 import { addToNomineeList, setIsMovieOpen } from "../../redux/nominee-list/nominee-list.actions";
 import { fetchMovie } from "../../redux/movies/movies.actions";
-import { selectIsListComplete, selectNomineeList } from "../../redux/nominee-list/nominee-list.selectors";
+import { setAlertMessage } from "../../redux/alert/alert.actions";
 
 import Placeholder   from '../../assets/image-placeholder.svg';
 
@@ -25,7 +27,6 @@ import {
   MessageContainer, 
   MoviesOverviewContainer
 } from "./movies.styles";
-import { setAlertMessage } from "../../redux/alert/alert.actions";
 
 const MoviesOverview = () => {
 

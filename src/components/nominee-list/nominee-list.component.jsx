@@ -11,6 +11,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 import CustomButton from "../custom-button/custom-button.component";
 import { TitleContainer } from "./nominee-list.styles";
+import { setAlertMessage } from "../../redux/alert/alert.actions";
 
 const NomineeList = () => {
 
@@ -18,15 +19,30 @@ const NomineeList = () => {
   const nomineeList =  useSelector(state => selectNomineeList(state));
   
   useEffect(() => {
-    if(nomineeList.length === 5) dispatch(setIsListComplete(true)); 
+    if(nomineeList.length === 5) {
+      dispatch(setIsListComplete(true));
+      dispatch(setAlertMessage("You have selected 5 movies, submit your nominations!"));  
+    }
     else dispatch(setIsListComplete(false));
     }, 
     [nomineeList, dispatch]
   );
 
-  const handleRemoveFromListClick = movie => dispatch(removeFromNomineeList(movie));
-  const handleClearListClick = () => dispatch(clearNomineeList());
-  const handleSubmitListClick = () => dispatch(clearNomineeList());
+  const handleRemoveFromListClick = movie => {
+    dispatch(removeFromNomineeList(movie));
+    dispatch(setAlertMessage("Movie removed from list."));
+  }
+
+  const handleClearListClick = () => {
+    dispatch(clearNomineeList());
+    dispatch(setAlertMessage("All movies were removed from the list."));
+  };
+
+  const handleSubmitListClick = () => {
+    dispatch(clearNomineeList());
+    window.confirm("Movies submited")
+  };
+
 
   const handleShow = movie => {
     dispatch(fetchMovie(movie));

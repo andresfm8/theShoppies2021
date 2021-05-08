@@ -30,10 +30,12 @@ const ToastAlert = () => {
     <ToastContainer>
       <Toast 
         show={show} 
-        delay={4000}
+        delay={3000}
         autohide
       >
-        <ToastBody>{alertMessage}</ToastBody>
+        <Toast.Header closeButton={false}>
+          <strong className="mr-auto">{alertMessage}</strong>
+        </Toast.Header>
       </Toast>
     </ToastContainer>
   )
