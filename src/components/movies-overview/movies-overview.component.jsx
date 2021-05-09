@@ -92,7 +92,11 @@ const MoviesOverview = () => {
                     </CardBodyContainer>
                   </CardContainer>
                 </Col>
-              ) : ''
+              ) : (
+                <MessageContainer> 
+                  Movie not found!
+                </MessageContainer>
+              )
             ))
           }      
           </RowContainer>    
