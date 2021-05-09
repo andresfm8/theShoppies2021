@@ -5,8 +5,8 @@ Shopify Fall 2021 Frontend Developer Intern Challenge
 You can find a demo [here](https://therealshoppies.netlify.app/).
 ## Table of Contents
 
-1. [Tools](#Tools)
-2. [Features](#Features)
++ [Tools](#Tools)
++ [Features](#Features)
   - [Search as you type](#search-as-you-type)
   - [Nominate movies](#nominate-movies)
   - [Persistent data](#persistent-data)
@@ -15,7 +15,7 @@ You can find a demo [here](https://therealshoppies.netlify.app/).
   - [View more details](#view-more-details)
   - [Remove movie from list](#remove-movie-from-list)
   - [Clear nominations](#clear-nominations)
-3. [Setup](#Setup)
++ [Setup](#Setup)
 # Tools
 
 + React
