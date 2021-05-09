@@ -4,7 +4,7 @@ Shopify Fall 2021 Frontend Developer Intern Challenge
 
 You can find a demo [here](https://therealshoppies.netlify.app/).
 ## Table of Contents
-
+[ToC]
 1. [Tools](#Tools)
 2. [Features](#Features)
     1. [Search as you type](##Search as you type)
