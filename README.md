@@ -7,14 +7,14 @@ You can find a demo [here](https://therealshoppies.netlify.app/).
 [ToC]
 1. [Tools](#Tools)
 2. [Features](#Features)
-    1. [Search as you type](#search-as-you-type)
-    2. [Nominate movies](#nominate-movies)
-    3. [Persistent data](#persistent-data)
-    4. [Submit nominations](#submit-nominations)
-    5. [Movie preview](#movie-preview)
-    6. [View more details](#view-more-details)
-    7. [Remove movie from list](#remove-movie-from-list)
-    8. [Clear nominations](#clear-nominations)
+  1. [Search as you type](#search-as-you-type)
+  2. [Nominate movies](#nominate-movies)
+  3. [Persistent data](#persistent-data)
+  4. [Submit nominations](#submit-nominations)
+  5. [Movie preview](#movie-preview)
+  6. [View more details](#view-more-details)
+  7. [Remove movie from list](#remove-movie-from-list)
+  8. [Clear nominations](#clear-nominations)
 3. [Setup](#Setup)
 # Tools
 
