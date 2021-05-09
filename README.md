@@ -7,14 +7,14 @@ You can find a demo [here](https://therealshoppies.netlify.app/).
 [ToC]
 1. [Tools](#Tools)
 2. [Features](#Features)
-    1. [Search as you type](##Search-as-you-type)
-    2. [Nominate movies](#)
-    3. [Persistent data](#)
-    4. [Submit nominations](#)
-    5. [Movie preview](#)
-    6. [View more details](#)
-    7. [Remove movies from nomination list](#)
-    8. [Clear nominations](#)
+    1. [Search as you type](#search-as-you-type)
+    2. [Nominate movies](#nominate-movies)
+    3. [Persistent data](#persistent-data)
+    4. [Submit nominations](#submit-nominations)
+    5. [Movie preview](#movie-preview)
+    6. [View more details](#view-more-details)
+    7. [Remove movie from list](#remove-movie-from-list)
+    8. [Clear nominations](#clear-nominations)
 3. [Setup](#Setup)
 # Tools
 
@@ -73,9 +73,9 @@ By clicking the imdb button inside the preview you will open a new tab with more
   <img src="./readme-content/view-more.gif" alt="animated" />
 </p>
 
-## Remove movies from nomination list
+## Remove movie from list
 
-Removing a movie from the list is super easy, you only need to press the X and you will have space for another one.
+Removing a movie from the list is super easy, you only need to click or press on the X and you will have space for a new nominee.
 
 <p align="center">
   <img src="./readme-content/remove-from-list.gif" alt="animated" />
