@@ -34,7 +34,7 @@ Search for your favorite movies as you type! For every key you press your search
 ## Nominate movies
 
 Find you favorite movies and nominate them to The Shoppies Awards.
-![](./readme-content/.gif)
+![](./readme-content/adding-movies.gif)
 ## Persistent data
 
 If you are not sure what are your five nominations you can come later and complete the list. The previous movies you added to the list will be saved automatically.
