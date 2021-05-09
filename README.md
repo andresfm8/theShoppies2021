@@ -64,7 +64,7 @@ Removing a movie from the list is super easy, you only need to press the X and y
 
 All movies in the list will be removed so you can choose other movies if you changed your opinion.
 
-![](./readme-content/clear-list.gif)
+<p align="center">![](./readme-content/clear-list.gif)</p>
 # Setup
 
 If you wish to run the project locally you can follow these steps:
