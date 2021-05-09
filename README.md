@@ -7,7 +7,7 @@ You can find a demo [here](https://therealshoppies.netlify.app/).
 [ToC]
 1. [Tools](#Tools)
 2. [Features](#Features)
-    1. [Search as you type](##Search as you type)
+    1. [Search as you type](##Search-as-you-type)
     2. [Nominate movies](#)
     3. [Persistent data](#)
     4. [Submit nominations](#)
