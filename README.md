@@ -9,14 +9,14 @@ You can find a demo [here](https://therealshoppies.netlify.app/).
 
 1. [Tools](#Tools)
 2. [Features](#Features)
-    1. Search as you type
-    2. Nominate Movies
-    3. Persistent data
-    4. Submit nominations
-    5. Movie preview
-    6. View more details
-    7. Remove movies from nomination list
-    8. Clear nominations
+    1. [Search as you type](##Search_as_you_type)
+    2. [Nominate Movies](#)
+    3. [Persistent data](#)
+    4. [Submit nominations](#)
+    5. [Movie preview](#)
+    6. [View more details](#)
+    7. [Remove movies from nomination list](#)
+    8. [Clear nominations](#)
 3. [Setup](#Setup)
 # Tools
 
