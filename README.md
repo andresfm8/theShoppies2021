@@ -29,35 +29,41 @@ You can find a demo [here](https://therealshoppies.netlify.app/).
 
 Search for your favorite movies as you type! For every key you press your search will be updated right away. It will also be updated if you delete a character.
 
-![](./readme-content/search-movies.gif)
-> Searching movies in real time
+<p align="center">![](./readme-content/search-movies.gif)</p>
 ## Nominate movies
 
 Find you favorite movies and nominate them to The Shoppies Awards.
+
 ![](./readme-content/adding-movies.gif)
 ## Persistent data
 
 If you are not sure what are your five nominations you can come later and complete the list. The previous movies you added to the list will be saved automatically.
+
 ![](./readme-content/persistent-data.gif)
 ## Submit nominations
 
 When you are decided on your five nominations, submit your list.
+
 ![](./readme-content/submit-list.gif)
 ## Movie preview
 
 A larger preview of the movie poster is available by clicking the movie title or image. You can also preview movies in the nomination list by clicking on their title.
+
 ![](./readme-content/preview-movie.gif)
 ## View more details
 
 By clicking the imdb button inside the preview you will open a new tab with more information about the movie.
+
 ![](./readme-content/view-more.gif)
 ## Remove movies from nomination list
 
 Removing a movie from the list is super easy, you only need to press the X and you will have space for another one.
+
 ![](./readme-content/remove-from-list.gif)
 ## Clear nominations
 
 All movies in the list will be removed so you can choose other movies if you changed your opinion.
+
 ![](./readme-content/clear-list.gif)
 # Setup
 
