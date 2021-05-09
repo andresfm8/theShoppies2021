@@ -64,32 +64,35 @@ const MoviesOverview = () => {
           <RowContainer xl={5} lg={4} md={3}>
           {
             movies.Search.map(movie => (
-              <Col key={`${movie.imdbID}${movie.Year}`} style={{padding: '0'}}>
-                <CardContainer>
-                  <CardImgContainer 
-                    role="button"
-                    src={movie.Poster !== 'N/A' ? movie.Poster : Placeholder} 
-                    alt={movie.Poster}
-                    onClick={() => handleShow(movie)}
-                  />
-                  <CardBodyContainer>
-                    <CardTitle
+              movie.Type === 'movie' ?
+              (
+                <Col key={`${movie.imdbID}${movie.Year}`} style={{padding: '0'}}>
+                  <CardContainer>
+                    <CardImgContainer 
                       role="button"
+                      src={movie.Poster !== 'N/A' ? movie.Poster : Placeholder} 
+                      alt={movie.Poster}
                       onClick={() => handleShow(movie)}
-                    >
-                      {movie.Title.length > 25
-                        ?`${movie.Title.substring(0,25)}...`
-                        : movie.Title} ({movie.Year})
-                    </CardTitle>             
-                    <AddButton
-                      variant="outline-primary"
-                      size="sm"
-                      disabled={isListComplete || isMovieInList(movie) }
-                      onClick={() => handleClick(movie)}
-                    >Add</AddButton>
-                  </CardBodyContainer>
-                </CardContainer>
-              </Col>
+                    />
+                    <CardBodyContainer>
+                      <CardTitle
+                        role="button"
+                        onClick={() => handleShow(movie)}
+                      >
+                        {movie.Title.length > 25
+                          ?`${movie.Title.substring(0,25)}...`
+                          : movie.Title} ({movie.Year})
+                      </CardTitle>             
+                      <AddButton
+                        variant="outline-primary"
+                        size="sm"
+                        disabled={isListComplete || isMovieInList(movie) }
+                        onClick={() => handleClick(movie)}
+                      >Add</AddButton>
+                    </CardBodyContainer>
+                  </CardContainer>
+                </Col>
+              ) : ''
             ))
           }      
           </RowContainer>    
